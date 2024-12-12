@@ -4,136 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/Icon.d3735820.png">
+    <link rel="shortcut icon" type="image/png" href="/Icon.238e7506.png">
     <title>Arda Technologies</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,900;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <style>h1 {
-  font-family: Mulish, serif;
-  font-style: normal;
-  font-weight: 900;
-}
-
-body {
-  color: #fff;
-  text-align: center;
-  background-color: #000;
-  margin: 0;
-  font-family: Space Mono, monospace;
-  font-style: normal;
-  font-weight: 400;
-  overflow-x: hidden;
-}
-
-.navbar {
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  display: flex;
-}
-
-.navbar .logo img {
-  object-fit: contain;
-  max-width: 100%;
-  height: 40px;
-}
-
-.navbar .signup {
-  color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 100px 20px;
-}
-
-.content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.content p {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
-.email-form {
-  border: 2px solid #fff;
-  border-radius: 50px;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  max-width: 350px;
-  margin: 0 auto;
-  padding: 5px;
-  display: flex;
-}
-
-.email-form input[type="email"] {
-  color: #fff;
-  background: none;
-  border: none;
-  border-radius: 50px 0 0 50px;
-  outline: none;
-  flex: 1;
-  padding: 10px 20px;
-  font-family: Space Mono, monospace;
-  font-size: 16px;
-}
-
-.email-form input[type="email"]::placeholder {
-  color: #fff;
-  font-family: Space Mono, monospace;
-}
-
-.email-form button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #3e92cc;
-  border: none;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin-right: 3px;
-  transition: background-color .3s;
-  display: flex;
-}
-
-.email-form button img {
-  object-fit: contain;
-  width: 20px;
-  height: 20px;
-}
-
-.image-container {
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  margin-top: 50px;
-  display: flex;
-}
-
-#model-container {
-  width: 600px;
-  height: 400px;
-}
-</style>
+    <link rel="stylesheet" href="/index.2cdaf7bc.css">
 </head>
 
 <body>
-    <script src="/index.975ef6c8.js" defer=""></script>
     <header class="navbar">
         <div class="logo">
-            <img src="/Logo.22fb6208.png" alt="Logo">
+            <img src="/Logo.78afb29f.png" alt="Logo">
         </div>
-        <!-- <a href="#" class="signup">Sign Up</a> -->
     </header>
     <main class="content">
         <h1>Intelligent Industry Simulations</h1>
@@ -141,7 +24,7 @@ body {
         <form class="email-form" id="email-form">
             <input type="email" name="email" placeholder="Enter email to get notified" required="">
             <button type="submit">
-                <img src="/Arrow.ca770a1e.svg" alt="Submit">
+                <img src="/Arrow.351ade51.svg" alt="Submit">
             </button>
         </form>
         <p id="status"></p>
@@ -149,96 +32,8 @@ body {
             <div id="model-container"></div>
         </div>
     </main>
-    <script>document.getElementById("email-form").addEventListener("submit", async function(e) {
-    e.preventDefault(); // Prevent default form submission
-    const email = e.target.email.value; // Get email from input
-    const airtableAccessToken = "pathiyCQ4xmP96Gkj.1fed8f0f73b6e9fb4f1f9bcb7d951222adfbfed72ac0edf553dd75ea91049857";
-    const airtableBaseId = "appoVVN4v32gYN2Ue";
-    const airtableTableName = "Table";
-    const url = `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableName}`;
-    const data = {
-        records: [
-            {
-                fields: {
-                    Email: email
-                }
-            }
-        ]
-    };
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${airtableAccessToken}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-        if (response.ok) {
-            document.getElementById("status").textContent = "Email successfully added!";
-            e.target.reset();
-        } else {
-            const errorDetails = await response.json();
-            console.error(errorDetails);
-            document.getElementById("status").textContent = "Error adding email. Try again.";
-        }
-    } catch (error) {
-        console.error(error);
-        document.getElementById("status").textContent = "Error connecting to Airtable.";
-    }
-});
-
-</script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/examples/js/loaders/OBJLoader.js"></script>
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-    
-        renderer.setSize(600, 400);
-        document.getElementById("model-container").appendChild(renderer.domElement);
-    
-        // Add lighting to make the 3D model visible
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Soft white light
-        scene.add(ambientLight);
-    
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
-    
-        // Position the camera
-        camera.position.z = 5;
-    
-        // Load the OBJ model
-        const objLoader = new THREE.OBJLoader();
-        objLoader.load(
-            'SpaceShip_001.obj', // Replace with the actual path to your .obj file
-            function (object) {
-                object.scale.set(0.5, 0.5, 0.5); // Adjust the scale as needed
-                scene.add(object);
-            },
-            function (xhr) {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded'); // Log the progress
-            },
-            function (error) {
-                console.error('An error occurred while loading the .obj model', error);
-            }
-        );
-    
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-    
-            // Rotate the entire scene (including the loaded model)
-            scene.rotation.y += 0.01;
-    
-            renderer.render(scene, camera);
-        }
-    
-        animate();
-    </script> -->
+    <script src="/index.e1ca3feb.js" defer=""></script>
+    <script src="/index.975ef6c8.js" defer=""></script>
 </body>
-
 
 </html>
