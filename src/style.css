@@ -1,0 +1,132 @@
+h1 {
+    font-family: "Mulish", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.navbar .logo img {
+    height: 40px;
+    /* Adjust the height to fit your design */
+    max-width: 100%;
+    /* Ensures the logo scales properly */
+    object-fit: contain;
+    /* Keeps the aspect ratio intact */
+}
+
+.content {
+    margin: 0 auto;
+    padding: 100px 20px;
+    max-width: 800px;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.email-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border: 2px solid #fff;
+    /* White border around the entire form */
+    border-radius: 50px;
+    /* Rounded corners for the input/button */
+    padding: 5px;
+    /* Padding inside the form */
+    max-width: 350px;
+    /* Restrict max width */
+    margin: 0 auto;
+    /* Center align */
+}
+
+.email-form input[type="email"] {
+    font-family: "Space Mono", monospace;
+    /* Space Mono font */
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    /* Rounded corners only on the left */
+    flex: 1;
+    /* Input takes up remaining space */
+    outline: none;
+    background: transparent;
+    /* Transparent background */
+    color: #fff;
+    /* White text color */
+}
+
+.email-form input[type="email"]::placeholder {
+    color: #fff;
+    /* White placeholder text */
+    font-family: "Space Mono", monospace;
+}
+
+.email-form button {
+    margin-right: 3px;
+    border: none;
+    background-color: #3E92CC;
+    /* Blue button */
+    color: #fff;
+    /* White text color */
+    width: 40px;
+    /* Set equal width and height for a circle */
+    height: 40px;
+    /* Set equal width and height for a circle */
+    border-radius: 50%;
+    /* Perfect circle */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.email-form button img {
+    width: 20px;
+    /* Adjust image size */
+    height: 20px;
+    /* Adjust image size */
+    object-fit: contain;
+    /* Ensure the image keeps its aspect ratio */
+}
+
+.image-container {
+    margin-top: 50px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#model-container {
+    width: 600px;
+    height: 400px;
+}
