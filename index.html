@@ -158,65 +158,117 @@
         <div class="logo">
             <img src="Logo.png" alt="Logo">
         </div>
-        <a href="#" class="signup">Sign Up</a>
+        <!-- <a href="#" class="signup">Sign Up</a> -->
     </header>
     <main class="content">
         <h1>Intelligent Industry Simulations</h1>
         <p>We use AI to bridge real and simulated worlds.</p>
-        <form class="email-form">
-            <input type="email" placeholder="Enter email to get notified" required />
+        <form class="email-form" id="email-form">
+            <input type="email" name="email" placeholder="Enter email to get notified" required />
             <button type="submit">
                 <img src="Arrow.svg" alt="Submit" />
             </button>
         </form>
+        <p id="status"></p>
         <div class="image-container">
             <div id="model-container"></div>
         </div>
     </main>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
     <script>
-        // Import the necessary classes
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000); // Aspect ratio: 600x400
-        const renderer = new THREE.WebGLRenderer();
+        document.getElementById("email-form").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent default form submission
 
-        // Set up the renderer size and attach it to the container
+            const email = e.target.email.value; // Get email from input
+
+            const airtableAccessToken = "pathiyCQ4xmP96Gkj.1fed8f0f73b6e9fb4f1f9bcb7d951222adfbfed72ac0edf553dd75ea91049857";
+            const airtableBaseId = "appoVVN4v32gYN2Ue";
+            const airtableTableName = "Table";
+
+            const url = `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableName}`;
+            const data = {
+                records: [
+                    {
+                        fields: {
+                            Email: email
+                        }
+                    }
+                ]
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${airtableAccessToken}`, // Use the Personal Access Token
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    document.getElementById("status").textContent = "Email successfully added!";
+                    e.target.reset();
+                } else {
+                    const errorDetails = await response.json();
+                    console.error(errorDetails);
+                    document.getElementById("status").textContent = "Error adding email. Try again.";
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById("status").textContent = "Error connecting to Airtable.";
+            }
+        });
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/examples/js/loaders/OBJLoader.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+    
         renderer.setSize(600, 400);
         document.getElementById("model-container").appendChild(renderer.domElement);
-
-        // Add a rotating cube as a placeholder (replace later with your model)
-        const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-
+    
+        // Add lighting to make the 3D model visible
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Soft white light
+        scene.add(ambientLight);
+    
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+    
         // Position the camera
         camera.position.z = 5;
-
-        // Rotation animation
-        function animate() {
-            requestAnimationFrame(animate);
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        // Example for loading a 3D model (GLTF/GLB format)
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            'path-to-your-model.glb', // Replace with the path to your 3D model
-            function (gltf) {
-                const model = gltf.scene;
-                scene.add(model);
+    
+        // Load the OBJ model
+        const objLoader = new THREE.OBJLoader();
+        objLoader.load(
+            'SpaceShip_001.obj', // Replace with the actual path to your .obj file
+            function (object) {
+                object.scale.set(0.5, 0.5, 0.5); // Adjust the scale as needed
+                scene.add(object);
             },
-            undefined,
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded'); // Log the progress
+            },
             function (error) {
-                console.error('An error occurred while loading the 3D model', error);
+                console.error('An error occurred while loading the .obj model', error);
             }
         );
+    
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+    
+            // Rotate the entire scene (including the loaded model)
+            scene.rotation.y += 0.01;
+    
+            renderer.render(scene, camera);
+        }
+    
+        animate();
     </script> -->
 </body>
+
 
 </html>
