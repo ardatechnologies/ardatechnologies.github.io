@@ -1,126 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intelligent Industry Simulations</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <style>
-    h1 {
-      font-family: "Mulish", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: black;
-      font-style: normal;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="Icon.png">
+    <title>Arda Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,900;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        h1 {
+            font-family: "Mulish", serif;
+            font-weight: 900;
+            font-style: normal;
+        }
 
-    body {
-      margin: 0;
-      font-family: "Space Mono", monospace;
-      font-weight: 400;
-      font-style: normal;
-      background-color: #000; /* Black background */
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-    }
+        body {
+            margin: 0;
+            font-family: "Space Mono", monospace;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
 
-    .navbar .logo {
-      font-size: 24px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+        .navbar .logo img {
+            height: 40px;
+            /* Adjust the height to fit your design */
+            max-width: 100%;
+            /* Ensures the logo scales properly */
+            object-fit: contain;
+            /* Keeps the aspect ratio intact */
+        }
 
-    .navbar .logo span {
-      color: #42aaff; /* Blue accent color */
-    }
+        .navbar .signup {
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+        }
 
-    .navbar .signup {
-      font-size: 16px;
-      text-decoration: none;
-      color: #fff;
-    }
+        .content {
+            margin: 0 auto;
+            padding: 100px 20px;
+            max-width: 800px;
+        }
 
-    .content {
-      margin: 0 auto;
-      padding: 100px 20px;
-      max-width: 800px;
-    }
+        .content h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
 
-    .content h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
+        .content p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
 
-    .content p {
-      font-size: 1.2rem;
-      margin: 20px 0;
-      line-height: 1.5;
-    }
+        .email-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            border: 2px solid #fff;
+            /* White border around the entire form */
+            border-radius: 50px;
+            /* Rounded corners for the input/button */
+            padding: 5px;
+            /* Padding inside the form */
+            max-width: 350px;
+            /* Restrict max width */
+            margin: 0 auto;
+            /* Center align */
+        }
 
-    .email-form {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-    }
+        .email-form input[type="email"] {
+            font-family: "Space Mono", monospace;
+            /* Space Mono font */
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            /* Rounded corners only on the left */
+            flex: 1;
+            /* Input takes up remaining space */
+            outline: none;
+            background: transparent;
+            /* Transparent background */
+            color: #fff;
+            /* White text color */
+        }
 
-    .email-form input[type="email"] {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      width: 300px;
-    }
+        .email-form input[type="email"]::placeholder {
+            color: #fff;
+            /* White placeholder text */
+            font-family: "Space Mono", monospace;
+        }
 
-    .email-form button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #42aaff; /* Blue button */
-      color: #fff;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .email-form button {
+            margin-right: 3px;
+            border: none;
+            background-color: #3E92CC;
+            /* Blue button */
+            color: #fff;
+            /* White text color */
+            width: 40px;
+            /* Set equal width and height for a circle */
+            height: 40px;
+            /* Set equal width and height for a circle */
+            border-radius: 50%;
+            /* Perfect circle */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            /* Smooth hover effect */
+        }
 
-    .email-form button:hover {
-      background-color: #3498db;
-    }
+        .email-form button img {
+            width: 20px;
+            /* Adjust image size */
+            height: 20px;
+            /* Adjust image size */
+            object-fit: contain;
+            /* Ensure the image keeps its aspect ratio */
+        }
 
-    .image-container {
-      margin-top: 50px;
-    }
+        .image-container {
+            margin-top: 50px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .image-container img {
-      max-width: 600px;
-      width: 100%;
-    }
-  </style>
+        #model-container {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
 </head>
+
 <body>
-  <header class="navbar">
-    <div class="logo">ARDA</div>
-    <a href="#" class="signup">Sign Up</a>
-  </header>
-  <main class="content">
-    <h1>Intelligent Industry Simulations</h1>
-    <p>We use AI to bridge real and simulated worlds.</p>
-    <form class="email-form">
-      <input type="email" placeholder="Enter email to get notified" required />
-      <button type="submit">→</button>
-    </form>
-    <div class="image-container">
-      <img src="https://via.placeholder.com/600x300" alt="Spaceship or machinery illustration">
-    </div>
-  </main>
+    <header class="navbar">
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+        </div>
+        <a href="#" class="signup">Sign Up</a>
+    </header>
+    <main class="content">
+        <h1>Intelligent Industry Simulations</h1>
+        <p>We use AI to bridge real and simulated worlds.</p>
+        <form class="email-form">
+            <input type="email" placeholder="Enter email to get notified" required />
+            <button type="submit">
+                <img src="Arrow.svg" alt="Submit" />
+            </button>
+        </form>
+        <div class="image-container">
+            <div id="model-container"></div>
+        </div>
+    </main>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
+    <script>
+        // Import the necessary classes
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000); // Aspect ratio: 600x400
+        const renderer = new THREE.WebGLRenderer();
+
+        // Set up the renderer size and attach it to the container
+        renderer.setSize(600, 400);
+        document.getElementById("model-container").appendChild(renderer.domElement);
+
+        // Add a rotating cube as a placeholder (replace later with your model)
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        // Position the camera
+        camera.position.z = 5;
+
+        // Rotation animation
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Example for loading a 3D model (GLTF/GLB format)
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            'path-to-your-model.glb', // Replace with the path to your 3D model
+            function (gltf) {
+                const model = gltf.scene;
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error('An error occurred while loading the 3D model', error);
+            }
+        );
+    </script> -->
 </body>
+
 </html>
