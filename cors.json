@@ -1,7 +1,8 @@
 [
     {
         "origin": [
-            "http://localhost:1234"
+            "http://localhost:1234",
+            "https://www.ardaworld.com"
         ],
         "method": [
             "GET",
