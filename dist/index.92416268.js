@@ -614,8 +614,9 @@ scene.add(pointLight);
 camera.position.z = 250;
 // const axesHelper = new THREE.AxesHelper(5);
 // scene.add(axesHelper);
-const objUrl = new URL(require("de05e2cc9c629a34"));
-const mtlUrl = new URL(require("9f96b5101cfcce1"));
+// const objUrl = new URL("assets/SpaceShip_001.obj", import.meta.url);
+// const mtlUrl = new URL("assets/SpaceShip_001.mtl", import.meta.url);
+const objUrl = new URL(require("4595c11d2cc4e426"));
 // Load the OBJ model
 const objLoader = new (0, _objloaderJs.OBJLoader)();
 objLoader.load(objUrl, function(object) {
@@ -635,7 +636,7 @@ function animate() {
 }
 animate();
 
-},{"three":"ktPTu","three/examples/jsm/loaders/OBJLoader.js":"htIhD","de05e2cc9c629a34":"bXNVG","three/examples/jsm/loaders/MTLLoader.js":"im57q","9f96b5101cfcce1":"89SDO"}],"ktPTu":[function(require,module,exports,__globalThis) {
+},{"three":"ktPTu","three/examples/jsm/loaders/OBJLoader.js":"htIhD","three/examples/jsm/loaders/MTLLoader.js":"im57q","4595c11d2cc4e426":"iIPZl"}],"ktPTu":[function(require,module,exports,__globalThis) {
 /**
  * @license
  * Copyright 2010-2024 Three.js Authors
@@ -33418,45 +33419,7 @@ class OBJLoader extends (0, _three.Loader) {
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh"}],"bXNVG":[function(require,module,exports,__globalThis) {
-module.exports = require("f635c552af4efa6f").getBundleURL('9JDRr') + "SpaceShip_001.ad0024ca.obj" + "?" + Date.now();
-
-},{"f635c552af4efa6f":"95GEp"}],"95GEp":[function(require,module,exports,__globalThis) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ('' + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return '/';
-}
-function getBaseURL(url) {
-    return ('' + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ('' + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error('Origin not found');
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"im57q":[function(require,module,exports,__globalThis) {
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh"}],"im57q":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MTLLoader", ()=>MTLLoader);
@@ -33769,9 +33732,9 @@ var _three = require("three");
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh"}],"89SDO":[function(require,module,exports,__globalThis) {
-module.exports = require("2ec71feef4a3c4bc").getBundleURL('9JDRr') + "SpaceShip_001.f9783593.mtl" + "?" + Date.now();
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh"}],"iIPZl":[function(require,module,exports,__globalThis) {
+module.exports = "https://storage.googleapis.com/arda-branding-assets/SpaceShip_001.obj";
 
-},{"2ec71feef4a3c4bc":"95GEp"}]},["d0L23","cpfx8"], "cpfx8", "parcelRequire94c2")
+},{}]},["d0L23","cpfx8"], "cpfx8", "parcelRequire94c2")
 
 //# sourceMappingURL=index.92416268.js.map

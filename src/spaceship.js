@@ -25,8 +25,12 @@ camera.position.z = 250;
 // const axesHelper = new THREE.AxesHelper(5);
 // scene.add(axesHelper);
 
-const objUrl = new URL("assets/SpaceShip_001.obj", import.meta.url);
-const mtlUrl = new URL("assets/SpaceShip_001.mtl", import.meta.url);
+// const objUrl = new URL("assets/SpaceShip_001.obj", import.meta.url);
+// const mtlUrl = new URL("assets/SpaceShip_001.mtl", import.meta.url);
+
+const objUrl = new URL("https://storage.googleapis.com/arda-branding-assets/SpaceShip_001.obj",
+    import.meta.url
+);
 
 // Load the OBJ model
 const objLoader = new OBJLoader();
