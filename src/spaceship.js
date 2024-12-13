@@ -5,7 +5,7 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, 800 / 400, 0.1, 1000);
-camera.position.z = 500; // Adjust camera distance to fit the object
+camera.position.z = 20; // Adjust camera distance to fit the object
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(800, 400);
@@ -45,8 +45,8 @@ const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
 // URLs for remote .obj and .mtl files
-const objUrl = "https://storage.googleapis.com/arda-branding-assets/SpaceShip_001.obj";
-const mtlUrl = "https://storage.googleapis.com/arda-branding-assets/SpaceShip_001.mtl";
+const objUrl = "https://storage.googleapis.com/arda-branding-assets/spaceship.obj";
+const mtlUrl = "https://storage.googleapis.com/arda-branding-assets/spaceship.mtl";
 
 // Load the MTL file
 const mtlLoader = new MTLLoader();
