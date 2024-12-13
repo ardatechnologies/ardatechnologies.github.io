@@ -61,7 +61,7 @@ body {
     /* Padding inside the form */
     max-width: 350px;
     /* Restrict max width */
-    margin: 0 auto;
+    margin: 40px auto 0;
     /* Center align */
 }
 
@@ -119,6 +119,7 @@ body {
 }
 
 .image-container {
+    /* border: 5px solid #555; */
     margin-top: 50px;
     height: 400px;
     display: flex;
@@ -127,6 +128,7 @@ body {
 }
 
 #model-container {
-    width: 600px;
+    /* border: 5px solid #FFF; */
+    width: 680px;
     height: 400px;
 }
