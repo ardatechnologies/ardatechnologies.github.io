@@ -5,11 +5,10 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, 800 / 400, 0.1, 1000);
-camera.position.z = 20; // Adjust camera distance to fit the object
+camera.position.z = 50; // Adjust camera distance to fit the object
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(800, 400);
-renderer.setClearColor(0x202020); // Dark gray background for better contrast
 renderer.shadowMap.enabled = true; // Enable shadows
 document.getElementById("model-container").appendChild(renderer.domElement);
 
@@ -40,13 +39,9 @@ const backLight = new THREE.DirectionalLight(0xffffff, 0.8); // Softer intensity
 backLight.position.set(-50, -50, -150); // Position behind the model
 scene.add(backLight);
 
-// Add an AxesHelper for debugging (can be removed later)
-const axesHelper = new THREE.AxesHelper(100);
-scene.add(axesHelper);
-
 // URLs for remote .obj and .mtl files
 const objUrl = "https://storage.googleapis.com/arda-branding-assets/spaceship.obj";
-const mtlUrl = "https://storage.googleapis.com/arda-branding-assets/spaceship.mtl";
+const mtlUrl = "./assets/Spaceship.mtl";
 
 // Load the MTL file
 const mtlLoader = new MTLLoader();
